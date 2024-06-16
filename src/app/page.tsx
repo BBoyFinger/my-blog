@@ -1,113 +1,238 @@
+"use client";
+
+// import Swiper core and required modules
+import { Navigation, Pagination, Scrollbar, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import Image from "next/image";
+import { useState } from "react";
+import WorkSliderBtns from "@/components/WorkSliderBtns";
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import {
+  Pagination as CustomPagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Post from "@/components/Post";
 
-export default function Home() {
+type Props = {};
+const topPosts = [
+  {
+    category: "LIFESTYLE",
+    image: "/assets/featured-beetle.jpg",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+  {
+    category: "MUSIC",
+    image: "/assets/featured-guitarman.jpg",
+    title: "What Your Music Preference Says About You and Your Personality.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+  {
+    category: "MANAGEMENT",
+    image: "/assets/featured-watch.jpg",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+];
+
+const posts = [
+  {
+    category: "LIFESTYLE",
+    image: "/assets/lamp-400.jpg.webp",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+  {
+    category: "LIFESTYLE",
+    image: "/assets/lamp-400.jpg.webp",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+  {
+    category: "LIFESTYLE",
+    image: "/assets/lamp-400.jpg.webp",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+  {
+    category: "LIFESTYLE",
+    image: "/assets/lamp-400.jpg.webp",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+  {
+    category: "LIFESTYLE",
+    image: "/assets/lamp-400.jpg.webp",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+  {
+    category: "LIFESTYLE",
+    image: "/assets/lamp-400.jpg.webp",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+  {
+    category: "LIFESTYLE",
+    image: "/assets/lamp-400.jpg.webp",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+  {
+    category: "LIFESTYLE",
+    image: "/assets/lamp-400.jpg.webp",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+  {
+    category: "LIFESTYLE",
+    image: "/assets/lamp-400.jpg.webp",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+    avatar: "",
+  },
+];
+
+const HomePage = (props: Props) => {
+  const [post, setPost] = useState(topPosts[0]);
+  const handleSlideChange = (swiper: any) => {
+    const currentIndex = swiper.activeIndex;
+    setPost(topPosts[currentIndex]);
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <div className="flex justify-center  mt-16">
+        {/* Slider */}
+        <section className="w-full xl:w-[50%]">
+          <Swiper
+            modules={[Pagination, Scrollbar, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            className="xl:h-[520px] mb-12"
+            onSlideChange={handleSlideChange}
+            pagination={{ clickable: true }}
+            autoplay
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+            {topPosts.map((post, index) => (
+              <SwiperSlide key={index} className="w-full">
+                <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                  {/* Overlay */}
+                  <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-50"></div>
+                  <div className="absolute flex flex-col justify-center items-center text-center text-white w-full h-full z-10 font-image gap-6">
+                    <p>{post.category}</p>
+                    <h1 className="text-[38px] transition-all ease-in-out">
+                      {post.title}
+                    </h1>
+                    <p className="text-[rgba(255,255,255,0.5)] flex gap-2 justify-center items-start">
+                      <Avatar>
+                        <AvatarImage
+                          src="https://github.com/shadcn.png"
+                          alt="@shadcn"
+                        />
+                        <AvatarFallback>CN</AvatarFallback>
+                      </Avatar>
+                      {post.tutor} . {post.date}
+                    </p>
+                  </div>
+                  <Image
+                    src={post.image}
+                    alt=""
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+
+            {/* Slider Buttons  */}
+            <WorkSliderBtns
+              containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
+              btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all duration-500"
+              iconStyles=""
             />
-          </a>
+          </Swiper>
+        </section>
+      </div>
+
+      {/* Post */}
+      <section>
+        <div className="container grid grid-cols-1 xl:grid-cols-3 gap-[20px]">
+          {posts.map((post, index) => {
+            return (
+              <Post
+                image={post.image}
+                title={post.title}
+                category={post.category}
+                date={post.date}
+                key={index}
+              />
+            );
+          })}
+          {/* Pagination */}
         </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <div className="mt-10">
+          <CustomPagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious href="#" />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">1</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#" isActive>
+                  2
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">3</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationEllipsis />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationNext href="#" />
+              </PaginationItem>
+            </PaginationContent>
+          </CustomPagination>
+        </div>
+      </section>
+    </>
   );
-}
+};
+
+export default HomePage;
