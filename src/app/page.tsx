@@ -137,7 +137,7 @@ const HomePage = (props: Props) => {
     <>
       <div className="flex justify-center  mt-16">
         {/* Slider */}
-        <section className="w-full xl:w-[50%]">
+        <section className="container w-full xl:w-[50%]">
           <Swiper
             modules={[Pagination, Scrollbar, Autoplay]}
             spaceBetween={30}

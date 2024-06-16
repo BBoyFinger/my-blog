@@ -27,7 +27,7 @@ const config = {
     extend: {
       colors: {
         primary: "#f2f2f2",
-        footerBlue: "#1111860",
+        footerBlue: "#111860",
         accent: {
           DEFAULT: "#6246EA",
           hover: "rgba(0,0,0,1.0)",
