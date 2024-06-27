@@ -23,4 +23,8 @@
   .text-outline-hover {
     -webkit-text-stroke: 1px #00ff99;
   }
+
+  .translate3d-custom {
+    transform: translate3d(-50%, 0, 0);
+  }
 }

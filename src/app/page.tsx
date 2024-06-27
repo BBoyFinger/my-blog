@@ -22,8 +22,66 @@ import {
 } from "@/components/ui/pagination";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Post from "@/components/Post";
+import PopularPost from "@/components/PopularPost";
+import Link from "next/link";
 
 type Props = {};
+
+const popularPost = [
+  {
+    image: "/assets/featured-beetle.jpg",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+  },
+  {
+    image: "/assets/featured-beetle.jpg",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+  },
+  {
+    image: "/assets/featured-beetle.jpg",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+  },
+  {
+    image: "/assets/featured-beetle.jpg",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+  },
+  {
+    image: "/assets/featured-beetle.jpg",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+  },
+  {
+    image: "/assets/featured-beetle.jpg",
+    title: "The difference between Classics, Vintage & Antique Cars.",
+    tutor: "John Doe",
+    date: "June 12, 2024",
+  },
+];
+
+const cateogies = [
+  { name: "Lifestyle" },
+  { name: "Travel" },
+  { name: "Management" },
+  { name: "Health" },
+  { name: "Creativiry" },
+];
+
+const siteLink = [
+  { name: "Home" },
+  { name: "Blog" },
+  { name: "Styles" },
+  { name: "About" },
+  { name: "Contact" },
+  { name: "Privacy Policy" },
+];
 const topPosts = [
   {
     category: "LIFESTYLE",
@@ -189,8 +247,8 @@ const HomePage = (props: Props) => {
       </div>
 
       {/* Post */}
-      <section>
-        <div className="container grid grid-cols-1 xl:grid-cols-3 gap-[20px]">
+      <section className="pt-[60px] pb-[72px]">
+        <div className="container grid grid-cols-1 xl:grid-cols-4 gap-[20px]  px-[10px] ">
           {posts.map((post, index) => {
             return (
               <Post
@@ -229,6 +287,65 @@ const HomePage = (props: Props) => {
               </PaginationItem>
             </PaginationContent>
           </CustomPagination>
+        </div>
+      </section>
+      {/* Popular Post */}
+      <section className=" pt-[120px] pb-[102px] bg-[rgb(255,255,255)] text-[1.5rem] leading-[1.8]">
+        <div className="container ">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+            {/* Populars post */}
+            <div className="px-[20px]">
+              <h3 className="text-[14px] leading-1.286 uppercase mb-[4.5rem] pt-[1.8rem] relative before:content-[''] before:block before:bg-black before:bg-opacity-10 before:h-[1px] before:w-full before:absolute before:top-0 before:left-0 after:content-[''] after:block after:bg-[rgb(17,24,96)] after:h-[2px] after:w-[90px] after:absolute after:top-0 after:left-0 ">
+                Popular Post
+              </h3>
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                {popularPost.map((post, index) => {
+                  return <PopularPost post={post} key={index} />;
+                })}
+              </div>
+            </div>
+            {/* Link */}
+            <div className="grid grid-cols-1 xl:grid-cols-2 ">
+              <div className="px-[20px]">
+                <h3 className="text-[14px] leading-1.286 uppercase mb-[4.5rem] pt-[1.8rem] relative before:content-[''] before:block before:bg-black before:bg-opacity-10 before:h-[1px] before:w-full before:absolute before:top-0 before:left-0 after:content-[''] after:block after:bg-[rgb(17,24,96)] after:h-[2px] after:w-[90px] after:absolute after:top-0 after:left-0 ">
+                  Categories
+                </h3>
+                <ul>
+                  {cateogies.map((category, index) => {
+                    return (
+                      <li
+                        className="py-[0.9px] border-b-[1px] border-solid border-[rgba(0,0,0,0.1)] last:border-none"
+                        key={index}
+                      >
+                        <Link href="#" className="text-[14px]">
+                          {category.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <div className="px-[20px]">
+                <h3 className="text-[14px] leading-1.286 uppercase mb-[4.5rem] pt-[1.8rem] relative before:content-[''] before:block before:bg-black before:bg-opacity-10 before:h-[1px] before:w-full before:absolute before:top-0 before:left-0 after:content-[''] after:block after:bg-[rgb(17,24,96)] after:h-[2px] after:w-[90px] after:absolute after:top-0 after:left-0 ">
+                  Site Links
+                </h3>
+                <ul>
+                  {siteLink.map((link, index) => {
+                    return (
+                      <li
+                        className="py-[0.9px] border-b-[1px] border-solid border-[rgba(0,0,0,0.1)] last:border-none"
+                        key={index}
+                      >
+                        <Link href="#" className="text-[14px]">
+                          {link.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

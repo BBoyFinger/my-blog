@@ -15,7 +15,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <nav
     role="navigation"
     aria-label="pagination"
-    className={cn("mx-auto flex w-full justify-center", className)}
+    className={cn("mx-auto my-[30px] flex w-full justify-center", className)}
     {...props}
   />
 )
@@ -54,7 +54,7 @@ const PaginationLink = ({
 }: PaginationLinkProps) => (
   <a
     aria-current={isActive ? "page" : undefined}
-    className={cn(
+    className={cn("text-black",
       buttonVariants({
         variant: isActive ? "outline" : "ghost",
         size,

@@ -17,7 +17,7 @@ type Props = {
 
 function Post(props: Props) {
   return (
-    <div className="xl:w-[320px] xl:h-[632px] bg-white text-center">
+    <div className="xl:w-[320px] xl:h-[632px] w-full max-w-full bg-white text-center flex-initial">
       {/* Header */}
       <div className="mb-8">
         <Link href="/#">

@@ -24,12 +24,20 @@ const Footer = (props: Props) => {
               <span className="block w-[120px] h-[1px] bg-white/10 absolute left-0 bottom-0"></span>
             </h4>
             <br />
-            <p>
+            <p className="mb-[30px]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
               dignissimos provident debitis unde rerum facilis dolorum neque,
               natus temporibus minus. Eveniet dolorum similique quasi porro,
               sunt fuga exercitationem molestiae aliquam!
             </p>
+
+            <div className="flex text-white gap-8 justify-center xl:justify-normal items-center mb-[15px] order-1 xl:order-none">
+              <FaFacebook className="w-[30px] h-[30px]" />
+              <FaTwitter className="w-[30px] h-[30px]" />
+              <FaInstagram className="w-[30px] h-[30px]" />
+              <FaYoutube className="w-[30px] h-[30px]" />
+              <FaPinterest className="w-[30px] h-[30px]" />
+            </div>
           </div>
           {/* Newsletter */}
           <div>
@@ -38,7 +46,7 @@ const Footer = (props: Props) => {
               <span className="block w-[120px] h-[1px] bg-white/10 absolute left-0 bottom-0"></span>
             </h4>
             <br />
-            <p className="mb-[3rem]">
+            <p className="mb-[30px]">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
               ipsam eius ea velit blanditiis quibusdam cupiditate, quisquam
               provident nulla.
@@ -48,21 +56,16 @@ const Footer = (props: Props) => {
               <Input type="email" placeholder="Email" />
               <Button type="submit">Send</Button>
             </div>
+
+            <div className="text-center xl:text-left">
+              Copyright {new Date().getFullYear()} Vu Tu
+            </div>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col xl:flex-row justify-between">
           {/* social */}
-          <div className="flex text-white gap-8 w-full justify-center xl:justify-normal items-center mb-[15px]">
-            <FaFacebook className="w-[30px] h-[30px]" />
-            <FaTwitter className="w-[30px] h-[30px]" />
-            <FaInstagram className="w-[30px] h-[30px]" />
-            <FaYoutube className="w-[30px] h-[30px]" />
-            <FaPinterest className="w-[30px] h-[30px]" />
-          </div>
+
           {/* Copyright */}
-          <p className="text-center xl:text-right">
-            Copyright {new Date().getFullYear()} Vu Tu
-          </p>
         </div>
       </div>
     </footer>
