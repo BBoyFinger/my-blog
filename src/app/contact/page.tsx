@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
@@ -87,10 +88,23 @@ const Contact = (props: Props) => {
           </h4>
           <div className="">
             <form action="">
-              <Input className="mb-0" placeholder="Your Name *" required ></Input>
-              <Input className="mb-0" placeholder="Your Email *" required ></Input>
-              <Input className="mb-0" placeholder="Website" ></Input>
-              <Textarea placeholder="Your Message *" required></Textarea>
+              <Input
+                className="mb-0 py-[18px]"
+                placeholder="Your Name *"
+                required
+              ></Input>
+              <Input
+                className="mb-0 py-[18px]"
+                placeholder="Your Email *"
+                required
+              ></Input>
+              <Input className="mb-0 py-[18px]" placeholder="Website"></Input>
+              <Textarea placeholder="Your Message *" required rows={4}></Textarea>
+
+              <Button className="mt-[60px] font-bold text-[12px] uppercase px-[30px] mb-[12px] bg-[#111860] border-[#111860] text-[#ffffff] h-[66px] w-full">
+                {" "}
+                Send Message
+              </Button>
             </form>
           </div>
         </div>
