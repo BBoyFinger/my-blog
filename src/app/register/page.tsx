@@ -6,7 +6,7 @@ import Link from "next/link";
 
 type Props = {};
 
-const Login = (props: Props) => {
+const Register = (props: Props) => {
   return (
     <div className="gradient-form h-full bg-neutral-200">
       <div className="container h-full p-10">
@@ -32,7 +32,7 @@ const Login = (props: Props) => {
                     </div>
                     {/* Form */}
                     <form action="">
-                      <p className="mb-4">Please login to your account</p>
+                      <p className="mb-4">Please Register to your account</p>
                       {/* username */}
                       <div className="relative mb-4">
                         <input
@@ -73,22 +73,22 @@ const Login = (props: Props) => {
                             }}
                             className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-dark-3 transition duration-150 ease-in-out hover:shadow-dark-2 focus:shadow-dark-2 focus:outline-none focus:ring-0 active:shadow-dark-2 "
                           >
-                            Login
+                            Register
                           </Button>
 
                           {/* forgot */}
-                          <Link href="#!">Forgot password?</Link>
+                          <Link href="#!">Terms and conditions</Link>
                         </div>
 
                         <div className="flex items-center justify-between pb-6">
-                          <p className="mb-0 me-2">Don't have an account?</p>
+                          <p className="mb-0 me-2">Have an account?</p>
                           <button
                             type="button"
                             className="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-danger-50/50 hover:text-danger-600 focus:border-danger-600 focus:bg-danger-50/50 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-rose-950 dark:focus:bg-rose-950"
                             data-twe-ripple-init
                             data-twe-ripple-color="light"
                           >
-                            <Link href="/register">Register</Link>
+                            <Link href="/login"> Login</Link>
                           </button>
                         </div>
                       </div>
@@ -116,4 +116,4 @@ const Login = (props: Props) => {
   );
 };
 
-export default Login;
+export default Register;
