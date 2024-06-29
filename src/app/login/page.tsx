@@ -1,57 +1,115 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Image from "next/image";
 import Link from "next/link";
 
 type Props = {};
 
 const Login = (props: Props) => {
   return (
-    <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <h1 className="flex items-center mb-6 text-2xl font-semibold text-gray-900">
-        Vu Tu<span className="text-accent">.Blog</span>
-      </h1>
-      <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-        <div className="p-6 space-y-4 md:space-y-6">
-          <h3 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-            Sign in to your account
-          </h3>
-          <form action="">
-            <div className="grid w-full max-w-sm items-center gap-1.5">
-              <Label htmlFor="">Your email</Label>
-              <Input type="email" placeholder="Email" id="email" />
-            </div>
-            <div className="grid w-full max-w-sm items-center gap-1.5">
-              <Label htmlFor="">Password</Label>
-              <Input type="password" placeholder="password" id="password" />
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-start">
-                <div className="flex items-center h-5">
-                  <Input
-                    id="remember"
-                    aria-describedby="remember"
-                    type="checkbox"
-                    className="w-4 h-4 border border-gray-300 rounded bg-green-50 focus:ring-3 focus:ring-primary-300"
-                    required
+    <div className="gradient-form h-full bg-neutral-200">
+      <div className="container h-full p-10">
+        <div className="flex h-full flex-wrap items-center justify-center text-neutral-800">
+          <div className="w-full">
+            <div className="block rounded-lg bg-white shadow-lg">
+              <div className="lg:flex lg:flex-wrap">
+                {/* Left-column */}
+                <div className="px-4 md:px-0 lg:w-6/12">
+                  <div className="md:mx-6 md:p-12">
+                    {/* Logo */}
+                    <div className="text-center">
+                      <Image
+                        src="/logo.webp"
+                        alt="logo"
+                        width={200}
+                        height={200}
+                        className="mx-auto w-48"
+                      ></Image>
+                      <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
+                        Vu Tu <span className="text-accent text-sm">.Blog</span>
+                      </h4>
+                    </div>
+                    {/* Form */}
+                    <form action="">
+                      <p className="mb-4">Please login to your account</p>
+                      {/* username */}
+                      <div className="relative mb-4">
+                        <input
+                          type="text"
+                          placeholder="Username"
+                          id="username"
+                          className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+                        />
+                        <Label
+                          htmlFor="usernameLabel"
+                          className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary"
+                        >
+                          Username
+                        </Label>
+                      </div>
+                      {/* Password */}
+                      <div className="relative mb-4">
+                        <input
+                          type="password"
+                          className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+                          id="exampleFormControlInput11"
+                          placeholder="Password"
+                        />
+                        <Label
+                          htmlFor="PasswordLabel"
+                          className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary"
+                        >
+                          Password
+                        </Label>
+                        {/* Submit */}
+                        <div className="mb-12 pb-1 pt-1 text-center">
+                          <Button
+                            data-twe-ripple-init
+                            data-twe-ripple-color="light"
+                            style={{
+                              background:
+                                "linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)",
+                            }}
+                            className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-dark-3 transition duration-150 ease-in-out hover:shadow-dark-2 focus:shadow-dark-2 focus:outline-none focus:ring-0 active:shadow-dark-2 "
+                          >
+                            Login
+                          </Button>
+
+                          {/* forgot */}
+                          <Link href="#!">Forgot password?</Link>
+                        </div>
+
+                        <div className="flex items-center justify-between pb-6">
+                          <p className="mb-0 me-2">Don't have an account?</p>
+                          <button
+                            type="button"
+                            className="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-danger-50/50 hover:text-danger-600 focus:border-danger-600 focus:bg-danger-50/50 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-rose-950 dark:focus:bg-rose-950"
+                            data-twe-ripple-init
+                            data-twe-ripple-color="light"
+                          >
+                            Register
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                {/* Right column */}
+                <div className="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-e-lg lg:rounded-bl-none">
+                  <Image
+                    src="/assets/login.jpg"
+                    alt="logo"
+                    width={200}
+                    height={200}
+                    quality={100}
+                    className="h-full w-full"
                   />
                 </div>
-                <div className="ml-3 text-sm">
-                  <Label className="text-gray-500">Remember Me</Label>
-                </div>
               </div>
-              <Link
-                href="#"
-                className="text-sm font-medium text-primary-600 hover:underline"
-              >
-                Forgot password
-              </Link>
             </div>
-            <Button>Sign in</Button>
-            <p>
-              Don't have an account yet <Link href="/register"> Sign up</Link>
-            </p>
-          </form>
+          </div>
         </div>
       </div>
     </div>
