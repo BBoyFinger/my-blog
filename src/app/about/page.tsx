@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {};
 
@@ -16,7 +17,7 @@ const About = (props: Props) => {
         similique quod quisquam enim tempore, rerum blanditiis ex odit culpa
         adipisci. Vel, animi.
       </p>
-      <div className="text-center flex justify-center">
+      <div className="flex justify-center">
         <Image
           src="/about.webp"
           width={1000}
@@ -91,6 +92,7 @@ const About = (props: Props) => {
             </p>
           </div>
         </div>
+       
       </div>
     </div>
   );
