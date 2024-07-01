@@ -290,12 +290,12 @@ const HomePage = (props: Props) => {
         </div>
       </section>
       {/* Popular Post */}
-      <section className=" pt-[120px] pb-[102px] bg-[rgb(255,255,255)] text-[1.5rem] leading-[1.8]">
+      <section className=" pt-[120px] pb-[102px] bg-[rgb(255,255,255)] text-[15px] leading-[1.8]">
         <div className="container ">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
             {/* Populars post */}
             <div className="px-[20px]">
-              <h3 className="text-[14px] leading-1.286 uppercase mb-[4.5rem] pt-[1.8rem] relative before:content-[''] before:block before:bg-black before:bg-opacity-10 before:h-[1px] before:w-full before:absolute before:top-0 before:left-0 after:content-[''] after:block after:bg-[rgb(17,24,96)] after:h-[2px] after:w-[90px] after:absolute after:top-0 after:left-0 ">
+              <h3 className="text-[14px] leading-1.286 uppercase mb-[45px] pt-[18px] relative before:content-[''] before:block before:bg-black before:bg-opacity-10 before:h-[1px] before:w-full before:absolute before:top-0 before:left-0 after:content-[''] after:block after:bg-[rgb(17,24,96)] after:h-[2px] after:w-[90px] after:absolute after:top-0 after:left-0 ">
                 Popular Post
               </h3>
               <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
@@ -307,7 +307,7 @@ const HomePage = (props: Props) => {
             {/* Link */}
             <div className="grid grid-cols-1 xl:grid-cols-2 ">
               <div className="px-[20px]">
-                <h3 className="text-[14px] leading-1.286 uppercase mb-[4.5rem] pt-[1.8rem] relative before:content-[''] before:block before:bg-black before:bg-opacity-10 before:h-[1px] before:w-full before:absolute before:top-0 before:left-0 after:content-[''] after:block after:bg-[rgb(17,24,96)] after:h-[2px] after:w-[90px] after:absolute after:top-0 after:left-0 ">
+                <h3 className="text-[14px] leading-1.286 uppercase mb-[45px] pt-[18px] relative before:content-[''] before:block before:bg-black before:bg-opacity-10 before:h-[1px] before:w-full before:absolute before:top-0 before:left-0 after:content-[''] after:block after:bg-[rgb(17,24,96)] after:h-[2px] after:w-[90px] after:absolute after:top-0 after:left-0 ">
                   Categories
                 </h3>
                 <ul>
@@ -326,7 +326,7 @@ const HomePage = (props: Props) => {
                 </ul>
               </div>
               <div className="px-[20px]">
-                <h3 className="text-[14px] leading-1.286 uppercase mb-[4.5rem] pt-[1.8rem] relative before:content-[''] before:block before:bg-black before:bg-opacity-10 before:h-[1px] before:w-full before:absolute before:top-0 before:left-0 after:content-[''] after:block after:bg-[rgb(17,24,96)] after:h-[2px] after:w-[90px] after:absolute after:top-0 after:left-0 ">
+                <h3 className="text-[14px] leading-1.286 uppercase mb-[45px] pt-[18px] relative before:content-[''] before:block before:bg-black before:bg-opacity-10 before:h-[1px] before:w-full before:absolute before:top-0 before:left-0 after:content-[''] after:block after:bg-[rgb(17,24,96)] after:h-[2px] after:w-[90px] after:absolute after:top-0 after:left-0 ">
                   Site Links
                 </h3>
                 <ul>

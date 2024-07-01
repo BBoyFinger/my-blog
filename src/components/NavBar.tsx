@@ -1,6 +1,15 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
 type Props = {};
 
@@ -35,23 +44,58 @@ const links = [
   },
 ];
 
+const category = [
+  {
+    tille: "LifeStylle",
+    href: "#",
+  },
+  {
+    tille: "LifeStylle",
+    href: "#",
+  },
+  {
+    tille: "LifeStylle",
+    href: "#",
+  },
+  {
+    tille: "LifeStylle",
+    href: "#",
+  },
+  {
+    tille: "LifeStylle",
+    href: "#",
+  },
+  {
+    tille: "LifeStylle",
+    href: "#",
+  },
+];
+
 const NavBar = (props: Props) => {
   const pathName = usePathname();
   return (
     <nav className="flex gap-8">
-      {links.map((link, index) => {
-        return (
-          <Link
-            href={link.href}
-            key={index}
-            className={`${
-              link.href === pathName && "border-b-2 border-accent"
-            } capitalize transition-all flex items-center text-[rgba(0,0,0,0.6)] hover:text-accent-hover`}
-          >
-            {link.name}
-          </Link>
-        );
-      })}
+      <NavigationMenu>
+        {/* {links.map((link, index) => {
+          return (
+            <Link
+              href={link.href}
+              key={index}
+              className={`${
+                link.href === pathName && "border-b-2 border-accent"
+              } capitalize transition-all flex items-center text-[rgba(0,0,0,0.6)] hover:text-accent-hover`}
+            >
+              {link.name}
+            </Link>
+          );
+        })} */}
+
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
     </nav>
   );
 };
