@@ -16,16 +16,12 @@ const links = [
     href: "/category",
   },
   {
-    name: "Styles",
-    href: "/styles",
+    name: "About",
+    href: "/about",
   },
   {
     name: "Blog",
     href: "/blog",
-  },
-  {
-    name: "About",
-    href: "/about",
   },
   {
     name: "Contact",

@@ -248,7 +248,7 @@ const HomePage = (props: Props) => {
 
       {/* Post */}
       <section className="pt-[60px] pb-[72px]">
-        <div className="container grid grid-cols-1 xl:grid-cols-4 gap-[20px]  px-[10px] ">
+        <div className="container grid grid-cols-1 xl:grid-cols-4 gap-[10px]">
           {posts.map((post, index) => {
             return (
               <Post

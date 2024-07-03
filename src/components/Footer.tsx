@@ -1,3 +1,4 @@
+import { MdOutlineEmail } from "react-icons/md";
 import React from "react";
 import { Input } from "./ui/input";
 import { MdEmail } from "react-icons/md";
@@ -53,8 +54,14 @@ const Footer = (props: Props) => {
             </p>
 
             <div className="flex mb-[18px]">
-              <Input type="email" placeholder="Email" />
-              <Button type="submit">Send</Button>
+              <Input
+                type="email"
+                placeholder="Email Address"
+                className={`bg-[rgba(0,0,0,0.25)]  text-white px-[20px]`}
+              />
+              <Button type="submit" className="bg-black text-white px-[20px]">
+                Send
+              </Button>
             </div>
 
             <div className="text-center xl:text-left">
@@ -62,7 +69,7 @@ const Footer = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col xl:flex-row justify-between">
+        <div className="flex flex-col xl:flex-row justify-between rounded-none">
           {/* social */}
 
           {/* Copyright */}
