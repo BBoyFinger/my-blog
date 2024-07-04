@@ -3,6 +3,7 @@ import React from "react";
 import NavBar from "./NavBar";
 import { FaSearch } from "react-icons/fa";
 import MobileNav from "./MobileNav";
+import Search from "./Search";
 
 type Props = {};
 
@@ -27,10 +28,11 @@ const Header = (props: Props) => {
 
         {/* Search */}
         <div className="flex items-center">
-          <a href="#" className="flex items-center gap-2">
+          {/* <a href="#" className="flex items-center gap-2">
             <span className="hidden xl:flex">Search</span>
             <FaSearch className="w-[18px] h-[18px]" />
-          </a>
+          </a> */}
+          <Search />
         </div>
         {/* Mobile nav */}
       </div>

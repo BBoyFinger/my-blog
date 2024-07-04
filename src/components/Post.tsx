@@ -10,7 +10,7 @@ type Props = {
 
 function Post(props: Props) {
   return (
-    <div className="px-[20px]">
+    <div className="px-[10px] mb-10">
       <div className="w-full max-w-full bg-white text-center flex-initial">
         {/* Header */}
         <motion.div
