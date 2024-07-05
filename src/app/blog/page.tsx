@@ -7,12 +7,20 @@ import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 type Props = {};
 
 const Blog = (props: Props) => {
   return (
-    <div className="py-[70px]">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+      }}
+      className="py-[70px]"
+    >
       <div className="text-center flex justify-center mb-[48px] p-[10px]">
         <Image
           className="w-[413px] h-[auto] xl:w-[1000px] xl:h-[500px]"
@@ -267,12 +275,14 @@ const Blog = (props: Props) => {
               <div className="form-field">
                 <Textarea placeholder="Your Message" rows={4} />
               </div>
-              <Button className="bg-[#111860] mt-[60px] text-white w-full">Add Comment</Button>
+              <Button className="bg-[#111860] mt-[60px] text-white w-full">
+                Add Comment
+              </Button>
             </fieldset>
           </form>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

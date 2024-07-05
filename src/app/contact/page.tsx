@@ -1,13 +1,21 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
-
+import { motion } from "framer-motion";
 type Props = {};
 
 const Contact = (props: Props) => {
   return (
-    <div className="py-[70px]">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+      }}
+      className="py-[70px]"
+    >
       <h1 className="text-[33px] xl:text-[42px] leading-[1.25] tracking-[-0.15px] text-center pb-[30px] relative mb-[24px] mt-[60px]">
         Contact Us.
         <div className="before:content-[''] before:block before:h-[1px] before:w-[240px] before:bg-[rgba(0,0,0,0.1)] before:absolute before:left-[50%] before:bottom-0 before:transform before:-translate-x-1/2"></div>
@@ -99,7 +107,11 @@ const Contact = (props: Props) => {
                 required
               ></Input>
               <Input className="mb-0 py-[18px]" placeholder="Website"></Input>
-              <Textarea placeholder="Your Message *" required rows={4}></Textarea>
+              <Textarea
+                placeholder="Your Message *"
+                required
+                rows={4}
+              ></Textarea>
 
               <Button className="mt-[60px] font-bold text-[12px] uppercase px-[30px] mb-[12px] bg-[#111860] border-[#111860] text-[#ffffff] h-[66px] w-full">
                 {" "}
@@ -109,7 +121,7 @@ const Contact = (props: Props) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

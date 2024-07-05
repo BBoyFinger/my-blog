@@ -3,6 +3,7 @@ import { Nunito_Sans, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { StoreProvider } from "./StoreProvider";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
@@ -27,12 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={nunitoSans.className}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="en">
+        <body className={nunitoSans.className}>
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </StoreProvider>
   );
 }

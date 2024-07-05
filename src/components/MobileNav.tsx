@@ -10,26 +10,42 @@ const links = [
   {
     name: "Home",
     href: "/",
+    trigger: false,
   },
   {
     name: "Categories",
     href: "/category",
-  },
-  {
-    name: "About",
-    href: "/about",
+    trigger: true,
+    children: [
+      { name: "Category 1", href: "/category/1" },
+      { name: "Category 2", href: "/category/2" },
+      { name: "Category 3", href: "/category/3" },
+    ],
   },
   {
     name: "Blog",
     href: "/blog",
+    trigger: true,
+    children: [
+      { name: "Blog Post 1", href: "/blog/1" },
+      { name: "Blog Post 2", href: "/blog/2" },
+      { name: "Blog Post 3", href: "/blog/3" },
+    ],
+  },
+  {
+    name: "About",
+    href: "/about",
+    trigger: false,
   },
   {
     name: "Contact",
     href: "/contact",
+    trigger: false,
   },
   {
     name: "Login",
     href: "/login",
+    trigger: false,
   },
 ];
 

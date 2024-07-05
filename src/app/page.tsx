@@ -1,6 +1,7 @@
 "use client";
 
 // import Swiper core and required modules
+import { motion } from "framer-motion";
 import { Navigation, Pagination, Scrollbar, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import Image from "next/image";
@@ -195,7 +196,14 @@ const HomePage = (props: Props) => {
     <>
       <div className="flex justify-center  mt-16">
         {/* Slider */}
-        <section className="container w-full xl:w-[50%]">
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+          }}
+          className="container w-full xl:w-[50%]"
+        >
           <Swiper
             modules={[Pagination, Scrollbar, Autoplay]}
             spaceBetween={30}
@@ -243,11 +251,18 @@ const HomePage = (props: Props) => {
               iconStyles=""
             />
           </Swiper>
-        </section>
+        </motion.section>
       </div>
 
       {/* Post */}
-      <section className="pt-[60px] pb-[72px]">
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: { delay: 1.5, duration: 0.4, ease: "easeIn" },
+        }}
+        className="pt-[60px] pb-[72px]"
+      >
         <div className="container grid grid-cols-1 xl:grid-cols-4 gap-[10px]">
           {posts.map((post, index) => {
             return (
@@ -288,7 +303,7 @@ const HomePage = (props: Props) => {
             </PaginationContent>
           </CustomPagination>
         </div>
-      </section>
+      </motion.section>
       {/* Popular Post */}
       <section className=" pt-[120px] pb-[102px] bg-[rgb(255,255,255)] text-[15px] leading-[1.8]">
         <div className="container ">

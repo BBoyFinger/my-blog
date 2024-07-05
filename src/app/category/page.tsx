@@ -1,5 +1,6 @@
-'use client'
+"use client";
 import Post from "@/components/Post";
+import { motion } from "framer-motion";
 import {
   Pagination as CustomPagination,
   PaginationContent,
@@ -9,6 +10,10 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { useDispatch } from "react-redux";
+import { getCategories } from "@/lib/feature/category/categorySlice";
+import { AppDispatch } from "@/lib/store";
+import { useEffect } from "react";
 
 type Props = {};
 
@@ -88,8 +93,23 @@ const posts = [
 ];
 
 const Category = (props: Props) => {
+  const dispatch: AppDispatch = useDispatch();
+  const getAllCategory = () => {
+    dispatch(getCategories());
+  };
+
+  useEffect(() => {
+    getAllCategory();
+  }, []);
+
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+      }}
+    >
       <div className="py-[70px]">
         <h1 className="text-[33px] xl:text-[42px] leading-[1.25] tracking-[-0.15px] text-center pb-[30px] relative mb-[24px] mt-[60px]">
           Category
@@ -143,7 +163,7 @@ const Category = (props: Props) => {
           </CustomPagination>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -15,17 +15,13 @@ function Post(props: Props) {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          animate={{ opacity: 1, transition: {delay: 1, duration: 0.4, ease: "backIn" } }}
           className="mb-8 "
         >
           <motion.div
             className=""
             whileHover={{
               scale: 1.1,
-              rotateY: 15,
-              rotateX: 15,
               boxShadow: "0px 10px 30px rgba(0,0,0,0.5)",
             }}
             whileTap={{ scale: 0.9 }}

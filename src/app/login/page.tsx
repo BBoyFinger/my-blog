@@ -1,14 +1,23 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type Props = {};
 
 const Login = (props: Props) => {
   return (
-    <div className="gradient-form h-full bg-neutral-200">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+      }}
+      className="gradient-form h-full bg-neutral-200"
+    >
       <div className="container h-full p-10">
         <div className="flex h-full flex-wrap items-center justify-center text-neutral-800">
           <div className="w-full">
@@ -112,7 +121,7 @@ const Login = (props: Props) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
