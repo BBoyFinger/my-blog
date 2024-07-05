@@ -22,14 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <StoreProvider>
-      <html lang="en">
-        <body className={libreBaskerville.className}>
-          <Header />
-          {children}
-          <Footer />
-        </body>
-      </html>
-    </StoreProvider>
+    // <StoreProvider>
+    <html lang="en">
+      <body className={libreBaskerville.className}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
+    </html>
+    // </StoreProvider>
   );
 }
