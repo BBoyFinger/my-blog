@@ -93,14 +93,14 @@ const posts = [
 ];
 
 const Category = (props: Props) => {
-  const dispatch: AppDispatch = useDispatch();
-  const getAllCategory = () => {
-    dispatch(getCategories());
-  };
+  // const dispatch: AppDispatch = useDispatch();
+  // const getAllCategory = () => {
+  //   dispatch(getCategories());
+  // };
 
-  useEffect(() => {
-    getAllCategory();
-  }, []);
+  // useEffect(() => {
+  //   getAllCategory();
+  // }, []);
 
   return (
     <motion.div
