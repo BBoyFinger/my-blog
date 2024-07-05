@@ -24,9 +24,9 @@ const links = [
     href: "/category",
     trigger: true,
     children: [
-      { name: "Category 1", href: "/category/1" },
-      { name: "Category 2", href: "/category/2" },
-      { name: "Category 3", href: "/category/3" },
+      { name: "Category 1", href: "/category" },
+      { name: "Category 2", href: "/category" },
+      { name: "Category 3", href: "/category" },
     ],
   },
   {
@@ -34,9 +34,9 @@ const links = [
     href: "/blog",
     trigger: true,
     children: [
-      { name: "Blog Post 1", href: "/blog/1" },
-      { name: "Blog Post 2", href: "/blog/2" },
-      { name: "Blog Post 3", href: "/blog/3" },
+      { name: "Blog Post 1", href: "/blog" },
+      { name: "Blog Post 2", href: "/blog" },
+      { name: "Blog Post 3", href: "/blog" },
     ],
   },
   {
