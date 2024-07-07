@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { getCategories } from "@/lib/feature/category/categorySlice";
 import { AppDispatch } from "@/lib/store";
 import { useEffect } from "react";
+import axios from "axios";
 
 type Props = {};
 
@@ -93,15 +94,15 @@ const posts = [
 ];
 
 const Category = (props: Props) => {
-  // const dispatch: AppDispatch = useDispatch();
-  // const getAllCategory = () => {
-  //   dispatch(getCategories());
-  // };
+  const dispatch: AppDispatch = useDispatch();
+  const getAllCategory = () => {
+    dispatch(getCategories());
+  };
 
-  // useEffect(() => {
-  //   getAllCategory();
-  // }, []);
-
+  useEffect(() => {
+    getAllCategory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0 }}
