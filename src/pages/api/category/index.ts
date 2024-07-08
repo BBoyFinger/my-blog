@@ -24,11 +24,11 @@ export default async function handle(
           description,
         },
       });
-      res.status(201).json(category);
+      return res.status(201).json(category);
     } catch (error) {
-      res.status(500).json({ message: "Internal Server Error" });
+      return res.status(500).json({ message: "Internal Server Error" });
     }
   } else {
-    res.status(405).json({ message: "Method Not Allowed" });
+    return res.status(405).json({ message: "Method Not Allowed" });
   }
 }

@@ -12,6 +12,17 @@ export const getCategories = createAsyncThunk(
   }
 );
 
+export const getCategoryById = createAsyncThunk(
+  "/category/getCategoryById",
+  async (id, thunkApi) => {
+    try {
+      return await categoryService.getCategoryById(id);
+    } catch (error) {
+      return thunkApi.rejectWithValue(error);
+    }
+  }
+);
+
 const initialState = {
   searchField: {
     name: undefined,
@@ -41,6 +52,16 @@ const categorySlice = createSlice({
       .addCase(getCategories.rejected, (state, action) => {
         (state.isError = true),
           (state.errorMessage = action.error.message || "");
+      })
+      .addCase(getCategoryById.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getCategoryById.fulfilled, (state, action) => {
+        state.isSuccess = true;
+      })
+      .addCase(getCategoryById.rejected, (state, action) => {
+        state.isError = true;
+        state.errorMessage = action.error.message || "";
       });
   },
 });

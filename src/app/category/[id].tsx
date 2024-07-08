@@ -1,11 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 
-type Props = {};
-
-const CategoryDetail = (props: Props) => {
-  const router = useRouter();
-  console.log(router);
+const CategoryDetail = (id) => {
   return <div>CategoryDetail</div>;
 };
 

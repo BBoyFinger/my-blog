@@ -3,53 +3,34 @@ import { IoMenuSharp } from "react-icons/io5";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
+
+import { useDispatch, useSelector } from "react-redux";
+import { getCategories } from "@/lib/feature/category/categorySlice";
+import { AppDispatch, RootState } from "@/lib/store";
+import { useEffect } from "react";
 
 type Props = {};
 
-const links = [
-  {
-    name: "Home",
-    href: "/",
-    trigger: false,
-  },
-  {
-    name: "Categories",
-    href: "/category",
-    trigger: true,
-    children: [
-      { name: "Category 1", href: "/category/1" },
-      { name: "Category 2", href: "/category/2" },
-      { name: "Category 3", href: "/category/3" },
-    ],
-  },
-  {
-    name: "Blog",
-    href: "/blog",
-    trigger: true,
-    children: [
-      { name: "Blog Post 1", href: "/blog/1" },
-      { name: "Blog Post 2", href: "/blog/2" },
-      { name: "Blog Post 3", href: "/blog/3" },
-    ],
-  },
-  {
-    name: "About",
-    href: "/about",
-    trigger: false,
-  },
-  {
-    name: "Contact",
-    href: "/contact",
-    trigger: false,
-  },
-  {
-    name: "Login",
-    href: "/login",
-    trigger: false,
-  },
-];
-
 const MobileNav = (props: Props) => {
+  const dispatch: AppDispatch = useDispatch();
+  const getAllCategory = () => {
+    dispatch(getCategories());
+  };
+
+  useEffect(() => {
+    getAllCategory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const category = useSelector(
+    (state: RootState) => state.categories.categories
+  );
   const pathname = usePathname();
   return (
     <div className="flex">
@@ -65,8 +46,8 @@ const MobileNav = (props: Props) => {
             </h1>
           </Link>
           {/* Nav */}
-          <nav className="flex flex-col justify-center items-center gap-8">
-            {links.map((link, index) => {
+          <nav className="m-[20px_20px_20px_20px] font-normal text-[17px] ">
+            {/* {links.map((link, index) => {
               return (
                 <Link
                   href={link.href}
@@ -79,7 +60,65 @@ const MobileNav = (props: Props) => {
                   {link.name}
                 </Link>
               );
-            })}
+            })} */}
+            <ul className="border-b-[1px] border-solid border-[rgba(0,0,0,0.1)]">
+              <li className="block p-0 text-left border-t-[1px] border-solid border-[rgba(0,0,0,0.1)]">
+                <Link href="/" className="leading-[60px]">
+                  Home
+                </Link>
+              </li>
+              <li className="block p-0 text-left border-t-[1px] border-solid border-[rgba(0,0,0,0.1)]">
+                <Accordion type="single" collapsible className="">
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger>Category</AccordionTrigger>
+                    <AccordionContent>
+                      <ul className="">
+                        {category.map((item, index) => (
+                          <li key={index}>
+                            <Link href="#" className="">
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </li>
+              <li className="block p-0 text-left border-t-[1px] border-solid border-[rgba(0,0,0,0.1)]">
+                <Accordion type="single" collapsible className="">
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger>Blog</AccordionTrigger>
+                    <AccordionContent>
+                      <ul className="">
+                        {category.map((item, index) => (
+                          <li key={index}>
+                            <Link href="#" className="">
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </li>
+              <li className="block p-0 text-left border-t-[1px] border-solid border-[rgba(0,0,0,0.1)]">
+                <Link href="/about" className="leading-[60px]">
+                  About
+                </Link>
+              </li>
+              <li className="block p-0 text-left border-t-[1px] border-solid border-[rgba(0,0,0,0.1)]">
+                <Link href="/contact" className="leading-[60px]">
+                  Contact
+                </Link>
+              </li>
+              <li className="block p-0 text-left border-t-[1px] border-solid border-[rgba(0,0,0,0.1)]">
+                <Link href="/login" className="leading-[60px]">
+                  Login
+                </Link>
+              </li>
+            </ul>
           </nav>
         </SheetContent>
       </Sheet>

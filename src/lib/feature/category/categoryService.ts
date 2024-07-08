@@ -5,6 +5,10 @@ const categoryService = {
     const response = await axios.get("/api/category");
     return response.data;
   },
+  getCategoryById: async (id: any) => {
+    const response = await axios.get(`/api/category/${id}`);
+    return response.data;
+  },
 };
 
 export default categoryService;
