@@ -33,7 +33,6 @@ export default async function handler(
     } else {
       const { name, pageSize, skip } = req.body;
       const filters: Filters = {};
-      console.log(req.method);
 
       if (name && typeof name === "string" && name.trim().length > 0) {
         filters.name = {
@@ -91,6 +90,26 @@ export default async function handler(
       res.status(200).json({ message: "Delete category successfully" });
     } catch (error) {
       res.status(500).json(error);
+    }
+  } else if (req.method === "PUT") {
+    const { id } = req.query;
+    const { name, description } = req.body;
+    try {
+      const category = await prisma.category.update({
+        data: {
+          name: name,
+          description: description,
+        },
+        where: {
+          id: id as string,
+        },
+      });
+      res.status(200).json(category);
+    } catch (error) {
+      console.log(error);
+      res
+        .status(500)
+        .json({ error: "An error occurred while updating the category" });
     }
   } else {
     res.status(405).end(`Method ${req.method} Not Allowed`);

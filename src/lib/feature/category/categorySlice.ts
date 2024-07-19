@@ -29,7 +29,29 @@ export const createCategory = createAsyncThunk(
     try {
       return categoryService.createCategory(data);
     } catch (error) {
-      thunkApi.rejectWithValue(error);
+      return thunkApi.rejectWithValue(error);
+    }
+  }
+);
+
+export const updateCategory = createAsyncThunk(
+  "/category/updateCategory",
+  async (data, thunkApi) => {
+    try {
+      return await categoryService.updateCategory(data);
+    } catch (error) {
+      return thunkApi.rejectWithValue(error);
+    }
+  }
+);
+
+export const deleteCategory = createAsyncThunk(
+  "/category/deleteCategory",
+  async (id, thunkApi) => {
+    try {
+      return await categoryService.deleteCategory(id);
+    } catch (error) {
+      return thunkApi.rejectWithValue(error);
     }
   }
 );
@@ -42,6 +64,8 @@ const initialState = {
   createCategory: undefined,
   categoryName: "",
   categoryDescription: "",
+  updatedCategory: undefined,
+  deletedCategory: undefined,
   isLoading: false,
   isSuccess: false,
   isError: false,
@@ -69,6 +93,7 @@ const categorySlice = createSlice({
       })
       .addCase(getCategoryById.fulfilled, (state, action) => {
         state.isSuccess = true;
+        state.isLoading = false;
         state.categoryName = action.payload.name;
         state.categoryDescription = action.payload.description;
       })
@@ -86,6 +111,34 @@ const categorySlice = createSlice({
         state.createCategory = action.payload;
       })
       .addCase(createCategory.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.errorMessage = action.error.message || "";
+      })
+      .addCase(updateCategory.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateCategory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.updatedCategory = action.payload;
+      })
+      .addCase(updateCategory.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.errorMessage = action.error.message || "";
+      })
+      .addCase(deleteCategory.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteCategory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.deletedCategory = action.payload;
+      })
+      .addCase(deleteCategory.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
         state.isSuccess = false;
