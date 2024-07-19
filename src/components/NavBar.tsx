@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "@/lib/feature/category/categorySlice";
 import { AppDispatch, RootState } from "@/lib/store";
 import { useEffect } from "react";
+import { Category } from "@prisma/client";
 
 const NavBar = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -24,11 +25,10 @@ const NavBar = () => {
 
   useEffect(() => {
     getAllCategory();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const category = useSelector(
-    (state: RootState) => state.categories.categories
+  const categories = useSelector(
+    (state: RootState) => state.category.categories
   );
 
   const pathName = usePathname();
@@ -36,7 +36,7 @@ const NavBar = () => {
     <nav className="flex gap-8">
       <NavigationMenu>
         <NavigationMenuItem>
-          <Link href="/home" legacyBehavior passHref>
+          <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink>Home</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
@@ -44,7 +44,7 @@ const NavBar = () => {
           <NavigationMenuTrigger>Category</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="text-[15px] font-normal m-0 py-[18px] bg-[#151515] rounded-[0_0_3px_3px] text-white w-40">
-              {category.map((item, index) => {
+              {categories?.map((item: Category, index) => {
                 return (
                   <li
                     className="block text-left p-0 m-0 min-h-[33px]"
@@ -52,7 +52,7 @@ const NavBar = () => {
                   >
                     <NavigationMenuLink asChild>
                       <Link
-                        href="#"
+                        href={`/category/${item.id}`}
                         className="py-[7.5px] px-[20px] text-[rgba(255,255,255,0.5)] hover:text-white "
                       >
                         {item.name}
@@ -68,7 +68,7 @@ const NavBar = () => {
           <NavigationMenuTrigger>Blog</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="text-[15px] font-normal m-0 py-[18px] bg-[#151515] rounded-[0_0_3px_3px] text-white w-40">
-              {category.map((item, index) => {
+              {categories?.map((item, index) => {
                 return (
                   <li
                     className="block text-left p-0 m-0 min-h-[33px]"

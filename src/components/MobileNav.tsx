@@ -28,9 +28,7 @@ const MobileNav = (props: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const category = useSelector(
-    (state: RootState) => state.categories.categories
-  );
+  const category = useSelector((state: RootState) => state.category.categories);
   const pathname = usePathname();
   return (
     <div className="flex">
@@ -73,7 +71,7 @@ const MobileNav = (props: Props) => {
                     <AccordionTrigger>Category</AccordionTrigger>
                     <AccordionContent>
                       <ul className="">
-                        {category.map((item, index) => (
+                        {category?.map((item, index) => (
                           <li key={index}>
                             <Link href="#" className="">
                               {item.name}
@@ -91,7 +89,7 @@ const MobileNav = (props: Props) => {
                     <AccordionTrigger>Blog</AccordionTrigger>
                     <AccordionContent>
                       <ul className="">
-                        {category.map((item, index) => (
+                        {category?.map((item, index) => (
                           <li key={index}>
                             <Link href="#" className="">
                               {item.name}
