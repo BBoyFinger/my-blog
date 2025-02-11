@@ -61,7 +61,7 @@ const popularPost = [
   },
   {
     image: "/assets/featured-beetle.jpg",
-    title: "The difference between Classics, Vintage & Antique Cars.",
+    title: "The difference between Classics, Vintage & Antique Carsl.",
     tutor: "John Doe",
     date: "June 12, 2024",
   },
